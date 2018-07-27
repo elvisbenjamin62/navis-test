@@ -1,0 +1,55 @@
+.navbar {
+  margin-bottom: 0px;
+  background-color: #001C38;
+  border: none;
+  border-radius: 0;
+}
+
+.navbar-toggle.navbar-left {
+  float: left;
+  margin-left: 10px;
+}
+
+.navbar-toggle {
+  border: none;
+}
+
+.navbar-toggle .icon-bar {
+  display: block;
+  width: 22px;
+  height: 2px;
+  border: 1px solid white;
+}
+
+.navbar-brand {
+  color: white;
+  background-color: #1AA78C;
+}
+
+ /*Filler for header*/
+.filler {
+  height: 100px;
+  background-color: #001C38;
+}
+
+@media (max-width: 767.5px) {
+  .filler {
+    height: 0px;
+  }
+  .navbar-brand {
+    background-color: transparent;
+    width: 100%;
+    text-align: center;
+  }
+  .navbar-left {
+    position: absolute;
+  }
+}
+
+.nav a {
+  color: white;
+}
+
+.nav a:hover {
+  color: grey;
+}

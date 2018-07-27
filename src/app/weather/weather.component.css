@@ -1,0 +1,33 @@
+.weather-footer {
+  border-bottom: .5em solid #555555;
+}
+
+.weather-item-container {
+  min-height: 200px;
+  padding: 2rem;
+
+}
+
+.weather-item-body {
+  width:200px;
+  height:200px;
+
+  margin:auto;
+  background-color: #ededed;
+  text-align: center;
+  align-content: center;
+  align-items: center;
+  border: 1px solid darkgrey;
+  border-radius: 10px;
+}
+
+.carousel-control {
+  background-image: none;
+  color: grey;
+}
+
+.carousel-control:hover {
+  color: ghostwhite;
+}
+
+

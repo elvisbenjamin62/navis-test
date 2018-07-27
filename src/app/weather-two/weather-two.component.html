@@ -1,0 +1,56 @@
+<div id="weatherFeed2" class="container">
+
+  <div class="content-header"><h3>Weather</h3></div>
+
+
+
+  <!--  <a href="https://github.com/rtpHarry/Bootstrap3-ShowManySlideOneCarousel">this code sample</a>   -->
+  <div class="row" *ngIf="!error.occured" >
+    <div class="col-md-12">
+      <div class="carousel carousel-showmanymoveone slide" id="carousel-tilenav" data-interval="false">
+        <div class="carousel-inner">
+
+
+
+
+          <div *ngFor="let weather of weatherCities; let i=index "  class="item" [ngClass]="{'active': i == 0 }" >
+            <div class="col-xs-12 col-sm-4 col-md-4">
+
+              <div class="weather-item-container" >
+                <div class="weather-item-body">
+                  <h3>{{weather.name }}</h3>
+                  <img [src]="getImagePath(weather.icon)" class="img-responsive" style="margin: auto;" #myImage>
+                  <!--<h3>{{weather.temperature + '&#8457; / ' + weather.windSpeed + ' mph'}}</h3>-->
+                  <div><span style="font-size: 2.5rem;"> {{weather.temperature}}</span>&#8457;</div>
+                  <div><span style="font-size: 1.5rem;"> Wind: {{weather.windSpeed}}</span>mph</div>
+                  <h4>{{weather.description | titlecase }}</h4>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+
+
+
+
+        </div>
+        <a class="left carousel-control" href="#carousel-tilenav" data-slide="prev"><i class="glyphicon glyphicon-chevron-left"></i></a>
+        <a class="right carousel-control" href="#carousel-tilenav" data-slide="next"><i class="glyphicon glyphicon-chevron-right"></i></a>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="alert alert-danger" *ngIf="error.occured">
+    {{ 'Oops! ' + error.description }}
+  </div>
+
+
+</div>
+
+
+<div class="content-footer weather-footer"></div>
+
+
+

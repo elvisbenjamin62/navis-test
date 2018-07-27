@@ -1,0 +1,22 @@
+.product-item {
+  margin-bottom: 1em;
+}
+
+img {
+  max-height: 20rem;
+  margin: auto;
+}
+
+.description {
+}
+
+@media (min-width: 768px) {
+  .description {
+    text-align: center;
+  }
+}
+
+.padding {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}

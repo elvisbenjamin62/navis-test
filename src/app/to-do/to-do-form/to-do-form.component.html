@@ -1,0 +1,23 @@
+<form (ngSubmit)="onSubmit(f)" #f="ngForm">
+  <div class="row ">
+
+    <div class="col-lg-12">
+      <div class="input-group" >
+        <input
+          class="to-do-input"
+          type="text"
+          id="to-do-input"
+          name="toDoInput"
+          ngModel
+          required>
+        <button class="to-do-button" type="submit" >+</button>
+      </div>
+    </div>
+
+    <div class="col-lg-12">
+      <br>
+      <p>To add an item to your To-Do list, type in the field above and press enter or click on the plus icon.</p>
+    </div>
+
+  </div>
+</form>

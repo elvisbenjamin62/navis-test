@@ -1,0 +1,84 @@
+/*.active {*/
+  /*background-color: green;*/
+/*}*/
+
+/*.completed {*/
+  /*background-color: darkgrey;*/
+/*}*/
+
+/*.list-item {*/
+  /*display:flex;*/
+  /*align-items:center;*/
+/*}*/
+/*.list-item-body {*/
+  /*margin-left: 5px;*/
+  /*margin-right: 5px;*/
+  /*margin-top: 5px;*/
+  /*margin-bottom:5px;*/
+  /*padding: 5px;*/
+  /*width: 100%;*/
+  /*background-color:#FFFFFF;*/
+/*}*/
+
+/*.list-item:hover .list-item-body {*/
+/*!*Hover*!*/
+/*}*/
+
+/*.list-item-body.completed {*/
+  /*background-color: #F1F1F1;*/
+/*}*/
+
+/*.tick {*/
+  /*cursor: pointer;*/
+  /*color: #DEDEDE;*/
+  /*text-decoration: none;*/
+/*}*/
+
+/*.completed .tick {*/
+  /*color: #939393;*/
+
+/*}*/
+
+/*.close-button {*/
+  /*cursor: pointer;*/
+  /*float: right;*/
+  /*margin-bottom: auto;*/
+  /*margin-top: auto;*/
+/*}*/
+
+
+/* Test Area */
+
+.list-item {
+  background-color:#FFFFFF;
+  margin-bottom:1.3rem;
+  margin-left: .1rem;
+  margin-right: .1rem;
+  padding-top: .5rem;
+  padding-bottom: .5rem;
+  /*border:1px solid grey;*/
+
+}
+
+.list-item.completed {
+  background-color: #F1F1F1;
+  color: #AFAFAF;
+}
+
+
+.tick {
+cursor: pointer;
+color: #DEDEDE;
+text-decoration: none;
+}
+
+.completed div .tick {
+color: #919191;
+}
+
+.close-button {
+  cursor: pointer;
+  text-align: center;
+
+}
+

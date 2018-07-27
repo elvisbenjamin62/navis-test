@@ -1,0 +1,23 @@
+
+.to-do-input  {
+  width: 90%;
+  background-color: transparent;
+  border: 0px solid;
+  height: 20px;
+}
+
+.to-do-button {
+  width: 10%;
+  float: right;
+  border: none;
+  background-color: transparent;
+  color: #001C38;
+}
+
+.input-group {
+  width: 100%;
+  background-color: white;
+  border: 1px solid #001C38;
+  color: #555555;
+  padding-left: 5px;
+}

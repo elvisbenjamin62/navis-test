@@ -1,1 +1,71 @@
-/* You can add global styles to this file, and also import other style files */
+
+.content-footer {
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+}
+@media (min-width: 768px) {
+  .content-footer {
+    width: 100%;
+  }
+}
+@media (min-width: 992px) {
+  .content-footer {
+    width: 970px;
+  }
+}
+@media (min-width: 1200px) {
+  .content-footer {
+    width: 1170px;
+  }
+}
+
+@media (max-width: 991.5px) {
+  .content-header  {
+    text-align: center
+  }
+}
+
+/*@media  (max-width: 992px) {*/
+  /*.navbar-toggle {*/
+    /*display: block;*/
+  /*}*/
+/*}*/
+
+/*@media (min-width: 992px) {*/
+  /*.navbar-toggle {*/
+    /*display: none;*/
+  /*}*/
+/*}*/
+
+
+.slick-prev:before {
+  color: darkgrey;
+}
+.slick-next:before {
+  color: darkgrey;
+}
+
+.slick-prev{
+  z-index: 1;
+  left: 0;
+}
+.slick-next {
+  z-index: 1;
+  right: 0;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
