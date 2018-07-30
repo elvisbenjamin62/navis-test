@@ -1,0 +1,18 @@
+<div class="myCarousel" >
+  <div *ngFor="let weather of weatherCities; let i=index "   >
+    <div class="weather-item-container" >
+      <div class="weather-item-body">
+        <h3>{{weather.name }}</h3>
+        <img [src]="getImagePath(weather.icon)" class="img-responsive" style="margin: auto;" #myImage>
+        <!--<h3>{{ weather.temperature + '&#8457; / ' + weather.windSpeed + ' mph'}}</h3>-->
+        <div><span style="font-size: 2.5rem;"> {{weather.temperature}}</span>&#8457;</div>
+        <div><span style="font-size: 1.5rem;"> Wind: {{weather.windSpeed}}</span>mph</div>
+        <h4>{{weather.description | titlecase }}</h4>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="alert alert-danger" *ngIf="error.occurred">
+  {{ 'Oops! ' + error.description }}
+</div>

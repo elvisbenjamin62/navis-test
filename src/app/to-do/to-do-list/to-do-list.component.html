@@ -1,6 +1,7 @@
 
 <div class="newspaper-container">
   <div class="newspaper">
-    <app-to-do-list-item *ngFor="let toDo of toDos" [toDo] = "toDo"></app-to-do-list-item>
+    <app-to-do-list-item *ngFor="let toDo of toDos; let i = index" [toDo] = "toDo"
+                         [lastToDo]="(i+1===toDos.length)?true:false"></app-to-do-list-item>
   </div>
 </div>

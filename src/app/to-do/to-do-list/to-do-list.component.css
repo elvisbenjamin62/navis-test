@@ -13,9 +13,7 @@
 
 .newspaper-container {
   height: 210px;
-  margin-bottom: 1rem;
-
-
+  margin-bottom: 1em;
   /* Overflow the column content when out of bound*/
   overflow: auto;
 }

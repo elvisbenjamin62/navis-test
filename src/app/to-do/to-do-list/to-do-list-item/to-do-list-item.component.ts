@@ -10,10 +10,12 @@ import {ToDoService} from '../../to-do.service';
 })
 export class ToDoListItemComponent implements OnInit {
   @Input() toDo: ToDo;
+  @Input() lastToDo = false;
   hovered = false;
   constructor(private toDoService: ToDoService) { }
 
   ngOnInit() {
+    console.log(this.lastToDo);
   }
   toggleState() {
     this.toDoService.toggleState(this.toDo);

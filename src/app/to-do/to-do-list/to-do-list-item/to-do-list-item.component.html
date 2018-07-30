@@ -8,7 +8,7 @@
   <!--</div>-->
 <!--</div>-->
 
-  <div class="row list-item" [ngClass]="{'completed': !toDo.state}" (mouseenter)="hovered=!hovered" (mouseleave)="hovered=!hovered">
+  <div class="row list-item" [ngClass]="{'completed': !toDo.state, 'lastToDo': lastToDo}" (mouseenter)="hovered=!hovered" (mouseleave)="hovered=!hovered">
     <div class="col-xs-2">
       <a class="tick" (click)="toggleState()"><span>&#x2714;</span></a>
     </div>

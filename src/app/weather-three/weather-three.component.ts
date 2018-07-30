@@ -1,10 +1,15 @@
-import {Component, OnDestroy, OnInit} from '@angular/core';
+import {
+  Component,
+  ComponentFactoryResolver,
+  ComponentRef,
+  OnDestroy,
+  OnInit,
+  ViewChild,
+  ViewContainerRef
+} from '@angular/core';
 import {Weather} from '../shared/weather.model';
-import {Subscription} from 'rxjs/Subscription';
 import {WeatherService} from '../shared/weather.service';
-
-
-declare var $: any;
+import {WeatherCarouselComponent} from './weather-carousel/weather-carousel.component';
 
 
 @Component({
@@ -12,55 +17,31 @@ declare var $: any;
   templateUrl: './weather-three.component.html',
   styleUrls: ['./weather-three.component.css']
 })
-
 export class WeatherThreeComponent implements OnInit, OnDestroy {
-
-  readonly imagePath = 'http://openweathermap.org/img/w/';
-  weatherCities: Weather[];
-  weatherSubscription: Subscription;
-  error = {'occured': false, 'description': ''};
-  constructor(private weatherService: WeatherService) { }
+  readonly cities = ['Oakland', 'Austin', 'New York', 'Phoenix'];
+  @ViewChild('entry', {read: ViewContainerRef }) entry: ViewContainerRef;
+  componentRef: ComponentRef<WeatherCarouselComponent>;
+  constructor(private weatherService: WeatherService, private componentFactoryResolver: ComponentFactoryResolver) { }
 
   ngOnInit() {
-
-
-    this.weatherCities = this.weatherService.getWeather();
-    this.weatherSubscription = this.weatherService.weatherUpdated
-      .subscribe((weatherCities: Weather[]) => {this.weatherCities = weatherCities; },
-        (error) => {
-          this.error.occured = true;
-          this.error.description = error.message;
-        },
-        () => { this.initCarousel();}
-        );
+    this.weatherService
+      .getWeatherFromAPI(this.cities)
+      .subscribe(
+        (weatherCities: Weather[]) => {
+          this.renderCarousel(weatherCities); },
+        (error) => {this.renderCarousel([], {'occurred': true, 'description': error.json().message}); }
+      );
   }
 
-  ngOnDestroy(): void {
-    this.weatherSubscription.unsubscribe();
+  renderCarousel(weatherCities: Weather[], error = {'occurred': false, 'description': ''}) {
+    this.entry.clear();
+    const weatherCarouselFactory = this.componentFactoryResolver.resolveComponentFactory(WeatherCarouselComponent);
+    this.componentRef = this.entry.createComponent(weatherCarouselFactory);
+    this.componentRef.instance.weatherCities = weatherCities;
+    this.componentRef.instance.error = error;
   }
 
-  getImagePath(image: string): string {
-    return (this.imagePath + image + '.png');
+  ngOnDestroy() {
+    this.componentRef.destroy();
   }
-
-  initCarousel() {
-    setTimeout(   () => {
-      $('.myCarousel').slick({
-        slidesToShow: 3,
-        slidesToScroll: 1,
-        responsive: [
-          {
-            breakpoint: 768,
-            settings: {
-              slidesToShow: 1,
-              slidesToScroll: 1
-            }
-          }
-        ]
-
-      });
-    }, 100);
-  }
-
-
 }
