@@ -1,24 +1,18 @@
-<!--<div class="list-item" (mouseenter)="hovered=!hovered" (mouseleave)="hovered=!hovered" >-->
-  <!--<div class="list-item-body" [ngClass]="{'completed': !toDo.state}">-->
-    <!--<a class="tick" (click)="toggleState()"><span>&#x2714;</span></a>-->
-    <!--{{ toDo.description }}-->
-    <!--<div class="close-button"  *ngIf="hovered" (click)="removeElement()">-->
-      <!--&times;-->
-    <!--</div>-->
-  <!--</div>-->
-<!--</div>-->
-
   <div class="row list-item" [ngClass]="{'completed': !toDo.state, 'lastToDo': lastToDo}" (mouseenter)="hovered=!hovered" (mouseleave)="hovered=!hovered">
-    <div class="col-xs-2">
-      <a class="tick" (click)="toggleState()"><span>&#x2714;</span></a>
-    </div>
-    <div class="col-xs-8" style="word-wrap: break-word;">
-      {{ toDo.description }}
-    </div>
-    <div class="col-xs-2">
-      <div class="close-button"  *ngIf="hovered" (click)="removeElement()">
-      &times;
+    <div class="col-xs-10">
+      <div class="row description">
+        <div class="col-xs-2 ">
+          <a class="tick" (click)="toggleState()"><span>&#x2714;</span></a>
+        </div>
+        <div class="col-xs-10 " style="word-wrap: break-word;">
+          {{ toDo.description }}
+        </div>
       </div>
+    </div>
+    <div class="col-xs-2 close">
+      <span class="close-button"  *ngIf="hovered" (click)="removeElement()">
+      &times;
+      </span>
     </div>
   </div>
 

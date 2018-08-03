@@ -1,4 +1,4 @@
-import {AfterViewChecked, AfterViewInit, Component, Input} from '@angular/core';
+import { AfterViewInit, Component, Input} from '@angular/core';
 import {Weather} from '../../shared/weather.model';
 
 declare var $: any;
@@ -13,13 +13,12 @@ export class WeatherCarouselComponent implements AfterViewInit {
 
   @Input() weatherCities: Weather[];
   @Input() error = {'occurred': false, 'description': ''};
-
   readonly imagePath = 'http://openweathermap.org/img/w/';
 
   constructor() { }
 
   ngAfterViewInit(): void {
-    if (this.error.occurred === false) {
+    if (this.weatherCities && this.error.occurred === false) {
       this.initCarousel();
     }
   }
@@ -33,16 +32,17 @@ export class WeatherCarouselComponent implements AfterViewInit {
       $('.myCarousel').slick({
         slidesToShow: 3,
         slidesToScroll: 1,
+        centerMode: true,
         responsive: [
           {
-            breakpoint: 768,
-            settings: {
+              breakpoint: 768,
+              settings: {
               slidesToShow: 1,
-              slidesToScroll: 1
+              slidesToScroll: 1,
+              centerMode: false
             }
           }
         ]
-
       });
     }, 100);
   }

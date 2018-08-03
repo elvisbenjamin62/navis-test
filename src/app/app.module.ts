@@ -1,6 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import {HttpModule} from '@angular/http';
 import {FormsModule} from '@angular/forms';
 
 import { AppComponent } from './app.component';
@@ -17,7 +16,16 @@ import { WeatherCarouselComponent } from './weather-three/weather-carousel/weath
 
 import { ProductService } from './products/product.service';
 import { ToDoService } from './to-do/to-do.service';
-import { WeatherService } from './shared/weather.service';
+import { WeatherService } from './weather-three/weather.service';
+import {RouterModule, Routes} from '@angular/router';
+import { HomeComponent } from './home/home.component';
+import {HttpClientModule} from '@angular/common/http';
+
+
+const appRoutes: Routes = [
+  { path: '', component: HomeComponent},
+  { path: '**',  redirectTo: '' }
+  ];
 
 @NgModule({
   declarations: [
@@ -31,12 +39,14 @@ import { WeatherService } from './shared/weather.service';
     ToDoFormComponent,
     ToDoListComponent,
     WeatherThreeComponent,
-    WeatherCarouselComponent
+    WeatherCarouselComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
-    HttpModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule,
+    RouterModule.forRoot(appRoutes)
   ],
   providers: [ProductService, ToDoService, WeatherService],
   bootstrap: [AppComponent],

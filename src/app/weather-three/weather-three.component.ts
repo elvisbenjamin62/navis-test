@@ -8,9 +8,10 @@ import {
   ViewContainerRef
 } from '@angular/core';
 import {Weather} from '../shared/weather.model';
-import {WeatherService} from '../shared/weather.service';
+import {WeatherService} from './weather.service';
 import {WeatherCarouselComponent} from './weather-carousel/weather-carousel.component';
 
+import {catchError} from 'rxjs/operators';
 
 @Component({
   selector: 'app-weather-three',
@@ -26,10 +27,16 @@ export class WeatherThreeComponent implements OnInit, OnDestroy {
   ngOnInit() {
     this.weatherService
       .getWeatherFromAPI(this.cities)
+      .pipe(
+        catchError((error) => {
+          this.renderCarousel([],
+            {'occurred': true, 'description': error.error.message ? error.error.message : 'Server/Network Error'});
+          return [];
+        })
+      )
       .subscribe(
         (weatherCities: Weather[]) => {
-          this.renderCarousel(weatherCities); },
-        (error) => {this.renderCarousel([], {'occurred': true, 'description': error.json().message}); }
+          this.renderCarousel(weatherCities); }
       );
   }
 
@@ -44,4 +51,5 @@ export class WeatherThreeComponent implements OnInit, OnDestroy {
   ngOnDestroy() {
     this.componentRef.destroy();
   }
+
 }

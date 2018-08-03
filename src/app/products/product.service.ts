@@ -21,7 +21,6 @@ export class ProductService  {
       'Beatae debitis dolore eligendi error nemo nostrum porro totam.' +
       ' Eum incidunt, nulla. Asperiores cum illo labore neque nesciunt,' +
       ' ratione sed vel vitae.'));
-
   }
 
   getProducts() {

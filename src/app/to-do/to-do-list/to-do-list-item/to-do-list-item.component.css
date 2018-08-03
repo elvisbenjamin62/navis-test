@@ -1,85 +1,47 @@
-/*.active {*/
-  /*background-color: green;*/
-/*}*/
-
-/*.completed {*/
-  /*background-color: darkgrey;*/
-/*}*/
-
-/*.list-item {*/
-  /*display:flex;*/
-  /*align-items:center;*/
-/*}*/
-/*.list-item-body {*/
-  /*margin-left: 5px;*/
-  /*margin-right: 5px;*/
-  /*margin-top: 5px;*/
-  /*margin-bottom:5px;*/
-  /*padding: 5px;*/
-  /*width: 100%;*/
-  /*background-color:#FFFFFF;*/
-/*}*/
-
-/*.list-item:hover .list-item-body {*/
-/*!*Hover*!*/
-/*}*/
-
-/*.list-item-body.completed {*/
-  /*background-color: #F1F1F1;*/
-/*}*/
-
-/*.tick {*/
-  /*cursor: pointer;*/
-  /*color: #DEDEDE;*/
-  /*text-decoration: none;*/
-/*}*/
-
-/*.completed .tick {*/
-  /*color: #939393;*/
-
-/*}*/
-
-/*.close-button {*/
-  /*cursor: pointer;*/
-  /*float: right;*/
-  /*margin-bottom: auto;*/
-  /*margin-top: auto;*/
-/*}*/
-
-
-/* Test Area */
-
 .list-item {
-  background-color:#FFFFFF;
   margin-bottom:.6em;
   margin-left: .1em;
   margin-right: .1em;
-  padding-top: .5em;
-  padding-bottom: .5em;
-  /*border:1px solid grey;*/
-
 }
 
-.list-item.completed {
+@media (max-width:767px ) {
+  .list-item {
+    background-color:#FFFFFF;
+  }
+  .list-item.completed  {
+    background-color: #F1F1F1;
+  }
+}
+
+.description {
+  background-color:#FFFFFF;
+  padding-top: .5em;
+  padding-bottom: .5em;
+}
+
+.list-item.completed .description {
   background-color: #F1F1F1;
   color: #AFAFAF;
 }
 
+.close {
+  padding-top: .3em;
+  padding-bottom: .3em;
+}
 
 .tick {
-cursor: pointer;
-color: #DEDEDE;
-text-decoration: none;
+  cursor: pointer;
+  color: #DEDEDE;
+  text-decoration: none;
 }
 
 .completed div .tick {
-color: #919191;
+  color: #919191;
 }
 
 .close-button {
   cursor: pointer;
   text-align: center;
-
 }
 
 .lastToDo.list-item {

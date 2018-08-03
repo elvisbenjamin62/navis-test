@@ -2,7 +2,6 @@ import {Component, Input, OnInit} from '@angular/core';
 import {ToDo} from '../../../shared/to-do.model';
 import {ToDoService} from '../../to-do.service';
 
-
 @Component({
   selector: 'app-to-do-list-item',
   templateUrl: './to-do-list-item.component.html',
@@ -15,7 +14,7 @@ export class ToDoListItemComponent implements OnInit {
   constructor(private toDoService: ToDoService) { }
 
   ngOnInit() {
-    console.log(this.lastToDo);
+    // console.log(this.lastToDo);
   }
   toggleState() {
     this.toDoService.toggleState(this.toDo);

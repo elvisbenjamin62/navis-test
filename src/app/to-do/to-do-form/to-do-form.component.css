@@ -3,7 +3,8 @@
   width: 90%;
   background-color: transparent;
   border: 0px solid;
-  height: 20px;
+  min-height: 20px;
+  padding-left: 5px;
 }
 
 .to-do-button {
@@ -19,5 +20,5 @@
   background-color: white;
   border: 1px solid #001C38;
   color: #555555;
-  padding-left: 5px;
+  padding-left: 0;
 }

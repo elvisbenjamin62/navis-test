@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
-import {Weather} from './weather.model';
-import {Http, Response} from '@angular/http';
+import {Weather} from '../shared/weather.model';
 import 'rxjs/add/operator/map';
 import {forkJoin} from 'rxjs/observable/forkJoin';
+import {HttpClient} from '@angular/common/http';
 
 @Injectable()
 export class WeatherService {
@@ -12,15 +12,19 @@ export class WeatherService {
   readonly UNITS = 'Imperial';
   // http://api.openweathermap.org/data/2.5/weather?APPID=892d32a9ba54f35f38773b0889e86ecd&q=London
 
-  constructor(private http: Http) {}
+  constructor( private httpClient: HttpClient) {}
 
   getWeatherFromAPI(cities: string[]) {
     return forkJoin(
     cities.map((city: string) => {
-      return this.http.get(this.URL, {'params': {'APPID': this.APPID, 'q': city, 'units': this.UNITS }})
+      return this.httpClient.get(this.URL,
+        {'params': {'APPID': this.APPID, 'q': city, 'units': this.UNITS },
+          observe: 'response',
+          responseType: 'json'
+      })
     .map(
-      (response: Response) => {
-        const weatherObject = response.json();
+      (response) => {
+        const weatherObject = response.body;
         // constructor(name: string, temperature: number, description: string, icon: string, windSpeed: string)
         const weather =  new Weather(
           weatherObject['name'],
@@ -31,5 +35,4 @@ export class WeatherService {
         return weather;
       }); }));
   }
-
 }

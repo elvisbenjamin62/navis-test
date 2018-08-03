@@ -7,16 +7,20 @@ img {
   margin: auto;
 }
 
-.description {
-}
-
 @media (min-width: 768px) {
   .description {
     text-align: center;
   }
+
+  .image {
+    padding-left: 3em;
+    padding-right: 3em;
+  }
+
 }
 
-.padding {
+.content {
   margin-top: 10px;
   margin-bottom: 10px;
 }
+
